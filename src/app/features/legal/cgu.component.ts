@@ -1,0 +1,54 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-cgu',
+  standalone: true,
+  template: `
+    <div class="container-page max-w-3xl prose-sm">
+      <h1 class="mb-6 text-2xl font-bold text-brand-900">Conditions Générales d'Utilisation</h1>
+
+      <h2 class="mt-6 font-bold text-brand-800">1. Objet</h2>
+      <p class="text-gray-600">
+        Les présentes CGU régissent l'accès et l'utilisation de la plateforme Cyna, éditée par
+        Cyna SAS, et des services SaaS de cybersécurité (SOC, EDR, XDR) proposés aux entreprises.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">2. Accès au service</h2>
+      <p class="text-gray-600">
+        L'accès aux espaces personnels nécessite la création d'un compte. Le client est
+        responsable de la confidentialité de ses identifiants.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">3. Abonnements et paiement</h2>
+      <p class="text-gray-600">
+        Les abonnements sont souscrits pour une durée mensuelle ou annuelle. Le paiement
+        s'effectue par carte bancaire via un prestataire conforme PCI-DSS.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">4. Responsabilités</h2>
+      <p class="text-gray-600">
+        Cyna met en œuvre les moyens nécessaires pour assurer la disponibilité du service selon
+        les SLA contractuels, sans garantie d'absence totale d'interruption.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">5. Données personnelles (RGPD)</h2>
+      <p class="text-gray-600">
+        Les données collectées (email, nom, historique d'achats) sont traitées conformément au
+        RGPD. Le client dispose d'un droit d'accès, de rectification et d'effacement.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">6. Résiliation</h2>
+      <p class="text-gray-600">
+        L'abonnement peut être résilié à tout moment depuis l'espace client, avec effet à la fin
+        de la période en cours.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">7. Droit applicable</h2>
+      <p class="text-gray-600">
+        Les présentes CGU sont soumises au droit français. Tout litige relève des tribunaux
+        compétents.
+      </p>
+    </div>
+  `,
+})
+export class CguComponent {}

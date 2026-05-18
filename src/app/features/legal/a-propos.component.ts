@@ -1,0 +1,46 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-a-propos',
+  standalone: true,
+  template: `
+    <div class="container-page max-w-3xl">
+      <h1 class="mb-6 text-2xl font-bold text-brand-900">À propos de Cyna</h1>
+
+      <p class="text-gray-600">
+        Cyna est une entreprise spécialisée en cybersécurité SaaS, au service des entreprises
+        modernes. Notre mission : rendre la cybersécurité de niveau entreprise accessible,
+        managée et continue.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">Nos solutions</h2>
+      <ul class="ml-5 list-disc text-gray-600">
+        <li><strong>SOC</strong> — surveillance et réponse 24/7.</li>
+        <li><strong>EDR</strong> — détection et réponse sur les endpoints.</li>
+        <li><strong>XDR</strong> — détection étendue, corrélation IA.</li>
+      </ul>
+
+      <h2 class="mt-6 font-bold text-brand-800">Nos valeurs</h2>
+      <p class="text-gray-600">
+        Confiance, transparence, excellence opérationnelle et proximité client.
+      </p>
+
+      <h2 class="mt-6 font-bold text-brand-800">Chiffres clés</h2>
+      <div class="mt-2 grid grid-cols-3 gap-4 text-center">
+        <div class="card p-4">
+          <p class="text-2xl font-extrabold text-brand-800">10+</p>
+          <p class="text-sm text-gray-500">ans d'expérience</p>
+        </div>
+        <div class="card p-4">
+          <p class="text-2xl font-extrabold text-brand-800">99.9%</p>
+          <p class="text-sm text-gray-500">SLA de disponibilité</p>
+        </div>
+        <div class="card p-4">
+          <p class="text-2xl font-extrabold text-brand-800">24/7</p>
+          <p class="text-sm text-gray-500">supervision</p>
+        </div>
+      </div>
+    </div>
+  `,
+})
+export class AProposComponent {}

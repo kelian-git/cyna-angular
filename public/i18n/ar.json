@@ -1,0 +1,93 @@
+{
+  "brand": { "name": "Cyna", "tagline": "أمّن مستقبلك" },
+  "nav": {
+    "home": "الرئيسية",
+    "catalog": "الكتالوج",
+    "search": "بحث",
+    "cart": "السلة",
+    "account": "حسابي",
+    "settings": "الإعدادات",
+    "orders": "طلباتي",
+    "contact": "اتصل بنا",
+    "about": "حول",
+    "cgu": "الشروط",
+    "legal": "إشعار قانوني",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "admin": "الإدارة"
+  },
+  "common": {
+    "loading": "جارٍ التحميل…",
+    "search": "بحث",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "close": "إغلاق",
+    "yes": "نعم",
+    "no": "لا",
+    "required": "مطلوب",
+    "available": "متوفر",
+    "unavailable": "غير متوفر",
+    "outOfStock": "نفد المخزون"
+  },
+  "home": {
+    "topProducts": "أفضل المنتجات الآن",
+    "categories": "فئاتنا",
+    "intro": "تؤمّن سينا مستقبلك. اكتشف حلول SOC و EDR و XDR المصممة للشركات الحديثة."
+  },
+  "product": {
+    "subscribe": "اشترك الآن",
+    "try": "جرّب الآن",
+    "unavailable": "الخدمة غير متوفرة",
+    "monthly": "شهري",
+    "yearly": "سنوي",
+    "perUser": "لكل مستخدم",
+    "features": "الميزات التقنية",
+    "similar": "خدمات مشابهة",
+    "addToCart": "أضف إلى السلة"
+  },
+  "cart": {
+    "title": "سلتي",
+    "empty": "سلتك فارغة",
+    "continueShopping": "متابعة التسوق",
+    "checkout": "إتمام الشراء",
+    "subtotal": "المجموع الفرعي",
+    "total": "الإجمالي",
+    "taxIncl": "شامل الضريبة"
+  },
+  "auth": {
+    "loginTitle": "تسجيل الدخول",
+    "registerTitle": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "name": "الاسم الكامل",
+    "rememberMe": "تذكرني",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "noAccount": "ليس لديك حساب بعد؟",
+    "hasAccount": "هل أنت عضو بالفعل؟",
+    "submitLogin": "تسجيل الدخول",
+    "submitRegister": "إنشاء حسابي"
+  },
+  "search": {
+    "title": "بحث متقدم",
+    "keyword": "كلمة مفتاحية",
+    "priceMin": "أدنى سعر",
+    "priceMax": "أعلى سعر",
+    "categoryFilter": "الفئات",
+    "onlyAvailable": "المتوفرة فقط",
+    "sortBy": "ترتيب حسب",
+    "noResult": "لا توجد نتائج",
+    "results": "{{count}} نتائج"
+  },
+  "footer": {
+    "rights": "© {{year}} Cyna. جميع الحقوق محفوظة.",
+    "social": "تابعنا"
+  }
+}

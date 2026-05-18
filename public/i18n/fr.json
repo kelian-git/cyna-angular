@@ -1,0 +1,93 @@
+{
+  "brand": { "name": "Cyna", "tagline": "secure your future" },
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "search": "Recherche",
+    "cart": "Panier",
+    "account": "Mon compte",
+    "settings": "Paramètres",
+    "orders": "Mes commandes",
+    "contact": "Contact",
+    "about": "À propos",
+    "cgu": "CGU",
+    "legal": "Mentions légales",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "logout": "Se déconnecter",
+    "admin": "Administration"
+  },
+  "common": {
+    "loading": "Chargement…",
+    "search": "Rechercher",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "yes": "Oui",
+    "no": "Non",
+    "required": "Champ requis",
+    "available": "Disponible",
+    "unavailable": "Indisponible",
+    "outOfStock": "Stock épuisé"
+  },
+  "home": {
+    "topProducts": "Les Top Produits du moment",
+    "categories": "Nos catégories",
+    "intro": "Cyna sécurise votre futur. Découvrez nos solutions SOC, EDR et XDR conçues pour les entreprises modernes."
+  },
+  "product": {
+    "subscribe": "S'ABONNER MAINTENANT",
+    "try": "ESSAYER MAINTENANT",
+    "unavailable": "SERVICE INDISPONIBLE",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "perUser": "Par utilisateur",
+    "features": "Caractéristiques techniques",
+    "similar": "Services similaires",
+    "addToCart": "Ajouter au panier"
+  },
+  "cart": {
+    "title": "Mon panier",
+    "empty": "Votre panier est vide",
+    "continueShopping": "Continuer mes achats",
+    "checkout": "Passer à la caisse",
+    "subtotal": "Sous-total",
+    "total": "Total",
+    "taxIncl": "Taxes incluses"
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Créer un compte",
+    "email": "Email",
+    "password": "Mot de passe",
+    "name": "Nom complet",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà inscrit ?",
+    "submitLogin": "Se connecter",
+    "submitRegister": "Créer mon compte"
+  },
+  "search": {
+    "title": "Recherche avancée",
+    "keyword": "Mot-clé",
+    "priceMin": "Prix min",
+    "priceMax": "Prix max",
+    "categoryFilter": "Catégories",
+    "onlyAvailable": "Uniquement disponibles",
+    "sortBy": "Trier par",
+    "noResult": "Aucun résultat",
+    "results": "{{count}} résultats"
+  },
+  "footer": {
+    "rights": "© {{year}} Cyna. Tous droits réservés.",
+    "social": "Suivez-nous"
+  }
+}
