@@ -1,0 +1,26 @@
+
+    <div class="container-page">
+      @if (category(); as cat) {
+        <div class="relative mb-8 overflow-hidden rounded-lg">
+          <img [src]="cat.imageUrl" [alt]="cat.name" class="h-52 w-full object-cover" />
+          <div class="absolute inset-0 bg-brand-950/60"></div>
+          <div class="absolute bottom-0 p-6">
+            <h1 class="text-3xl font-extrabold text-white">{{ cat.name }}</h1>
+            <p class="mt-1 max-w-2xl text-white/85">{{ cat.description }}</p>
+          </div>
+        </div>
+      }
+
+      @if (loading()) {
+        <app-loader />
+      } @else if (products().length === 0) {
+        <app-empty-state title="Aucun produit dans cette catégorie" icon="📦" />
+      } @else {
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          @for (p of products(); track p.idProduct) {
+            <app-product-card [product]="p" (add)="addToCart($event)" />
+          }
+        </div>
+      }
+    </div>
+  

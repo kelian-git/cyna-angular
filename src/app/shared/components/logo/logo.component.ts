@@ -5,23 +5,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-logo',
   standalone: true,
   imports: [RouterLink],
-  template: `
-    <a routerLink="/" class="flex items-center gap-2" aria-label="Cyna — accueil">
-      <span
-        class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-800 font-extrabold text-white"
-        aria-hidden="true"
-        >C</span
-      >
-      <span class="flex flex-col leading-none">
-        <span class="text-lg font-extrabold text-brand-900">cyna</span>
-        @if (showTagline) {
-          <span class="text-[10px] font-medium uppercase tracking-wide text-brand-500"
-            >secure your future</span
-          >
-        }
-      </span>
-    </a>
-  `,
+  templateUrl: './logo.component.html',
+  styleUrl: './logo.component.scss'
 })
 export class LogoComponent {
   @Input() showTagline = true;

@@ -1,0 +1,47 @@
+
+    <h1 class="mb-6 text-2xl font-bold text-brand-900">Tableau de bord</h1>
+
+    <div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div class="card p-5">
+        <p class="text-sm text-gray-500">Chiffre d'affaires</p>
+        <p class="text-2xl font-extrabold text-brand-800">{{ revenue() }}</p>
+      </div>
+      <div class="card p-5">
+        <p class="text-sm text-gray-500">Commandes</p>
+        <p class="text-2xl font-extrabold text-brand-800">{{ orders().length }}</p>
+      </div>
+      <div class="card p-5">
+        <p class="text-sm text-gray-500">Produits</p>
+        <p class="text-2xl font-extrabold text-brand-800">{{ products().length }}</p>
+      </div>
+    </div>
+
+    <div class="mb-4 flex gap-2">
+      <button
+        type="button"
+        class="rounded px-3 py-1 text-sm"
+        [class.bg-brand-800]="period() === '7d'"
+        [class.text-white]="period() === '7d'"
+        [class.bg-gray-100]="period() !== '7d'"
+        (click)="setPeriod('7d')"
+      >
+        7 jours
+      </button>
+      <button
+        type="button"
+        class="rounded px-3 py-1 text-sm"
+        [class.bg-brand-800]="period() === '5w'"
+        [class.text-white]="period() === '5w'"
+        [class.bg-gray-100]="period() !== '5w'"
+        (click)="setPeriod('5w')"
+      >
+        5 semaines
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div class="card p-5"><canvas #salesCanvas></canvas></div>
+      <div class="card p-5"><canvas #basketCanvas></canvas></div>
+      <div class="card p-5 lg:col-span-2"><canvas #pieCanvas></canvas></div>
+    </div>
+  

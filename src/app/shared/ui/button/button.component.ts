@@ -7,32 +7,8 @@ export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
   selector: 'app-button',
   standalone: true,
   imports: [NgClass],
-  template: `
-    <button
-      [type]="type"
-      [disabled]="disabled || loading"
-      [attr.aria-label]="ariaLabel || null"
-      [attr.aria-busy]="loading"
-      class="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 disabled:cursor-not-allowed disabled:opacity-50"
-      [ngClass]="{
-        'bg-brand-800 text-white hover:bg-brand-900': variant === 'primary',
-        'border border-brand-800 bg-white text-brand-800 hover:bg-brand-50':
-          variant === 'secondary',
-        'bg-danger text-white hover:opacity-90': variant === 'danger',
-        'text-brand-800 hover:bg-brand-50': variant === 'ghost',
-        'w-full': block,
-      }"
-      (click)="clicked.emit($event)"
-    >
-      @if (loading) {
-        <span
-          class="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
-          aria-hidden="true"
-        ></span>
-      }
-      <ng-content />
-    </button>
-  `,
+  templateUrl: './button.component.html',
+  styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';

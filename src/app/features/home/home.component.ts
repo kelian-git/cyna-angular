@@ -21,41 +21,8 @@ import { ProductCardComponent } from '../../shared/ui/product-card/product-card.
     ProductCardComponent,
     LoaderComponent,
   ],
-  template: `
-    <div class="container-page flex flex-col gap-10">
-      <app-carousel [slides]="carousel.slides()" />
-
-      <p class="rounded-lg bg-brand-50 p-4 text-center text-sm text-brand-900">
-        {{ carousel.fixedText() }}
-      </p>
-
-      <section>
-        <h2 class="mb-4 text-xl font-bold text-brand-900">{{ 'home.categories' | translate }}</h2>
-        @if (loadingCats()) {
-          <app-loader />
-        } @else {
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            @for (c of categories(); track c.idCategory) {
-              <app-category-card [category]="c" />
-            }
-          </div>
-        }
-      </section>
-
-      <section>
-        <h2 class="mb-4 text-xl font-bold text-brand-900">{{ 'home.topProducts' | translate }}</h2>
-        @if (loadingProds()) {
-          <app-loader />
-        } @else {
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            @for (p of topProducts(); track p.idProduct) {
-              <app-product-card [product]="p" (add)="addToCart($event)" />
-            }
-          </div>
-        }
-      </section>
-    </div>
-  `,
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
   readonly carousel = inject(CarouselService);

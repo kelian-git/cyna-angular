@@ -1,0 +1,62 @@
+
+    <div class="container-page">
+      <h1 class="mb-6 text-2xl font-bold text-brand-900">Mes commandes</h1>
+
+      <div class="mb-4 flex flex-wrap gap-3">
+        <input
+          class="input-field max-w-xs"
+          [(ngModel)]="search"
+          placeholder="Rechercher (produit, n°)"
+        />
+        <select class="input-field max-w-[160px]" [(ngModel)]="yearFilter">
+          <option value="">Toutes les années</option>
+          @for (y of years(); track y) {
+            <option [value]="y">{{ y }}</option>
+          }
+        </select>
+        <select class="input-field max-w-[180px]" [(ngModel)]="statusFilter">
+          <option value="">Tous les statuts</option>
+          <option value="PENDING">En attente</option>
+          <option value="DELIVERED">Livrée</option>
+          <option value="COMPLETED">Terminée</option>
+          <option value="CANCELLED">Annulée</option>
+        </select>
+      </div>
+
+      @if (loading()) {
+        <app-loader />
+      } @else if (filtered().length === 0) {
+        <app-empty-state title="Aucune commande" icon="📋" />
+      } @else {
+        @for (group of grouped(); track group.year) {
+          <section class="mb-6">
+            <h2 class="mb-2 font-bold text-brand-900">{{ group.year }}</h2>
+            <div class="flex flex-col gap-2">
+              @for (o of group.orders; track o.idOrder) {
+                <div class="card flex items-center justify-between p-4">
+                  <div>
+                    <a
+                      [routerLink]="['/compte/commandes', o.idOrder]"
+                      class="font-semibold text-brand-700 hover:underline"
+                      >Commande #{{ o.idOrder }}</a
+                    >
+                    <p class="text-sm text-gray-500">
+                      {{ date(o.orderDate) }} —
+                      {{ o.orderItems?.length || 0 }} article(s)
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span class="font-bold text-brand-800">{{ money(o.totalAmount) }}</span>
+                    <app-badge [tone]="tone(o.status)">{{ o.status }}</app-badge>
+                    <button type="button" class="text-sm text-brand-700" (click)="downloadInvoice()">
+                      Facture
+                    </button>
+                  </div>
+                </div>
+              }
+            </div>
+          </section>
+        }
+      }
+    </div>
+  

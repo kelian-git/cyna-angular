@@ -6,19 +6,8 @@ import { applyDirection } from '../../../core/i18n/translate-loader';
 @Component({
   selector: 'app-language-switcher',
   standalone: true,
-  template: `
-    <label class="sr-only" for="lang-select">Langue</label>
-    <select
-      id="lang-select"
-      class="rounded border border-gray-300 bg-white px-2 py-1 text-sm"
-      [value]="translate.currentLang || translate.defaultLang"
-      (change)="change($event)"
-    >
-      @for (l of langs; track l) {
-        <option [value]="l">{{ l.toUpperCase() }}</option>
-      }
-    </select>
-  `,
+  templateUrl: './language-switcher.component.html',
+  styleUrl: './language-switcher.component.scss'
 })
 export class LanguageSwitcherComponent {
   readonly translate = inject(TranslateService);

@@ -13,45 +13,8 @@ import { CarouselSlide } from '../../../core/models';
   selector: 'app-carousel',
   standalone: true,
   imports: [RouterLink, NgClass],
-  template: `
-    <section
-      class="relative h-72 overflow-hidden rounded-lg sm:h-96"
-      aria-roledescription="carousel"
-      aria-label="Mises en avant Cyna"
-    >
-      @for (slide of slides; track slide.id; let i = $index) {
-        <div
-          class="absolute inset-0 flex flex-col items-start justify-center gap-4 bg-gradient-to-br p-8 transition-opacity duration-700 sm:p-16"
-          [ngClass]="slide.bg"
-          [class.opacity-100]="i === current()"
-          [class.opacity-0]="i !== current()"
-          [class.pointer-events-none]="i !== current()"
-          [attr.aria-hidden]="i !== current()"
-        >
-          <h2 class="max-w-xl text-3xl font-extrabold text-white sm:text-5xl">{{ slide.title }}</h2>
-          <p class="max-w-lg text-white/85 sm:text-lg">{{ slide.subtitle }}</p>
-          <a
-            [routerLink]="slide.href"
-            class="rounded-lg bg-white px-5 py-2.5 font-semibold text-brand-800 hover:bg-brand-50"
-          >
-            {{ slide.cta }}
-          </a>
-        </div>
-      }
-      <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-        @for (slide of slides; track slide.id; let i = $index) {
-          <button
-            type="button"
-            class="h-2.5 w-2.5 rounded-full bg-white transition"
-            [class.opacity-100]="i === current()"
-            [class.opacity-40]="i !== current()"
-            [attr.aria-label]="'Aller à la diapositive ' + (i + 1)"
-            (click)="goTo(i)"
-          ></button>
-        }
-      </div>
-    </section>
-  `,
+  templateUrl: './carousel.component.html',
+  styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent implements OnInit, OnDestroy {
   @Input() slides: CarouselSlide[] = [];

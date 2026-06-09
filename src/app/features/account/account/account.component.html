@@ -1,0 +1,53 @@
+
+    <div class="container-page">
+      <h1 class="mb-2 text-2xl font-bold text-brand-900">Mon compte</h1>
+      <p class="mb-6 text-gray-500">{{ auth.getCurrentUser()?.name }} — {{ auth.getCurrentUser()?.email }}</p>
+
+      <div class="mb-6 flex gap-3">
+        <a routerLink="/compte/parametres" class="btn-secondary">Mes paramètres</a>
+        <a routerLink="/compte/commandes" class="btn-secondary">Mes commandes</a>
+      </div>
+
+      @if (loading()) {
+        <app-loader />
+      } @else {
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <section class="card p-5">
+            <h2 class="mb-3 font-bold text-brand-900">Abonnements actifs</h2>
+            @if (subscriptions().length === 0) {
+              <p class="text-sm text-gray-500">Aucun abonnement actif.</p>
+            } @else {
+              <ul class="flex flex-col gap-2">
+                @for (s of subscriptions(); track s.idSubscription) {
+                  <li class="flex justify-between text-sm">
+                    <span>Du {{ date(s.startDate) }} au {{ date(s.endDate) }}</span>
+                    <app-badge [tone]="s.status === 'ACTIVE' ? 'success' : 'neutral'">{{
+                      s.status
+                    }}</app-badge>
+                  </li>
+                }
+              </ul>
+            }
+          </section>
+
+          <section class="card p-5">
+            <h2 class="mb-3 font-bold text-brand-900">Commandes récentes</h2>
+            @if (orders().length === 0) {
+              <p class="text-sm text-gray-500">Aucune commande.</p>
+            } @else {
+              <ul class="flex flex-col gap-2">
+                @for (o of orders(); track o.idOrder) {
+                  <li class="flex justify-between text-sm">
+                    <a [routerLink]="['/compte/commandes', o.idOrder]" class="text-brand-700 hover:underline"
+                      >#{{ o.idOrder }} — {{ date(o.orderDate) }}</a
+                    >
+                    <span>{{ money(o.totalAmount) }}</span>
+                  </li>
+                }
+              </ul>
+            }
+          </section>
+        </div>
+      }
+    </div>
+  

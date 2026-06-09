@@ -3,16 +3,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-empty-state',
   standalone: true,
-  template: `
-    <div class="flex flex-col items-center justify-center gap-3 py-16 text-center">
-      <div class="text-5xl" aria-hidden="true">{{ icon }}</div>
-      <h3 class="text-lg font-semibold text-gray-700">{{ title }}</h3>
-      @if (description) {
-        <p class="max-w-md text-sm text-gray-500">{{ description }}</p>
-      }
-      <ng-content />
-    </div>
-  `,
+  templateUrl: './empty-state.component.html',
+  styleUrl: './empty-state.component.scss'
 })
 export class EmptyStateComponent {
   @Input() icon = '📭';

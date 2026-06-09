@@ -7,77 +7,8 @@ import { AuthService } from '../../../core/services/auth.service';
   selector: 'app-menu-burger',
   standalone: true,
   imports: [RouterLink, TranslateModule],
-  template: `
-    @if (open) {
-      <div
-        class="fixed inset-0 z-[80] bg-black/50 md:hidden"
-        (click)="close.emit()"
-        aria-hidden="true"
-      ></div>
-      <nav
-        class="fixed right-0 top-0 z-[81] flex h-full w-72 flex-col gap-1 bg-white p-5 shadow-xl md:hidden"
-        aria-label="Menu principal"
-      >
-        <button
-          type="button"
-          class="self-end text-gray-400 hover:text-gray-700"
-          aria-label="Fermer le menu"
-          (click)="close.emit()"
-        >
-          ✕
-        </button>
-        <a routerLink="/" class="menu-link" (click)="close.emit()">{{ 'nav.home' | translate }}</a>
-        <a routerLink="/categories" class="menu-link" (click)="close.emit()">{{
-          'nav.catalog' | translate
-        }}</a>
-        @if (auth.isAuthenticated()) {
-          <a routerLink="/compte/parametres" class="menu-link" (click)="close.emit()">{{
-            'nav.settings' | translate
-          }}</a>
-          <a routerLink="/compte/commandes" class="menu-link" (click)="close.emit()">{{
-            'nav.orders' | translate
-          }}</a>
-          @if (auth.isAdmin()) {
-            <a routerLink="/admin" class="menu-link" (click)="close.emit()">{{
-              'nav.admin' | translate
-            }}</a>
-          }
-        }
-        <a routerLink="/cgu" class="menu-link" (click)="close.emit()">{{
-          'nav.cgu' | translate
-        }}</a>
-        <a routerLink="/mentions-legales" class="menu-link" (click)="close.emit()">{{
-          'nav.legal' | translate
-        }}</a>
-        <a routerLink="/contact" class="menu-link" (click)="close.emit()">{{
-          'nav.contact' | translate
-        }}</a>
-        <a routerLink="/a-propos" class="menu-link" (click)="close.emit()">{{
-          'nav.about' | translate
-        }}</a>
-        <hr class="my-2" />
-        @if (auth.isAuthenticated()) {
-          <button type="button" class="menu-link text-left text-danger" (click)="logout.emit()">
-            {{ 'nav.logout' | translate }}
-          </button>
-        } @else {
-          <a routerLink="/connexion" class="menu-link" (click)="close.emit()">{{
-            'nav.login' | translate
-          }}</a>
-          <a routerLink="/inscription" class="menu-link" (click)="close.emit()">{{
-            'nav.register' | translate
-          }}</a>
-        }
-      </nav>
-    }
-  `,
-  styles: [
-    `
-      .menu-link {
-        @apply rounded px-3 py-2 text-sm font-medium text-gray-700 hover:bg-brand-50;
-      }
-    `,
-  ],
+  templateUrl: './menu-burger.component.html',
+  styleUrl: './menu-burger.component.scss'
 })
 export class MenuBurgerComponent {
   @Input() open = false;

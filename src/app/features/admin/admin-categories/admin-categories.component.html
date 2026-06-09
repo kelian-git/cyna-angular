@@ -1,0 +1,63 @@
+
+    <h1 class="mb-6 text-2xl font-bold text-brand-900">Catégories</h1>
+
+    <form
+      [formGroup]="createForm"
+      (ngSubmit)="create()"
+      class="card mb-6 flex max-w-md items-end gap-3 p-4"
+    >
+      <div class="flex-1">
+        <label class="mb-1 block text-sm font-medium" for="newcat">Nouvelle catégorie</label>
+        <input id="newcat" class="input-field" formControlName="name" />
+      </div>
+      <button type="submit" class="btn-primary" [disabled]="createForm.invalid">Ajouter</button>
+    </form>
+
+    @if (loading()) {
+      <app-loader />
+    } @else {
+      <div class="flex flex-col gap-2">
+        @for (c of categories(); track c.idCategory; let i = $index) {
+          <div class="card flex items-center gap-4 p-3">
+            <img [src]="c.imageUrl" [alt]="c.name" class="h-12 w-12 rounded object-cover" />
+            @if (editId() === c.idCategory) {
+              <input class="input-field flex-1" [value]="c.name" #editInput />
+              <button type="button" class="btn-primary" (click)="save(c, editInput.value)">
+                Enregistrer
+              </button>
+              <button type="button" class="btn-secondary" (click)="editId.set(null)">
+                Annuler
+              </button>
+            } @else {
+              <div class="flex-1">
+                <p class="font-semibold text-brand-900">{{ c.name }}</p>
+                <p class="text-sm text-gray-500">{{ c.products?.length || 0 }} produit(s)</p>
+              </div>
+              <button
+                type="button"
+                class="px-2 text-gray-500 disabled:opacity-30"
+                [disabled]="i === 0"
+                aria-label="Monter"
+                (click)="move(i, -1)"
+              >
+                ↑
+              </button>
+              <button
+                type="button"
+                class="px-2 text-gray-500 disabled:opacity-30"
+                [disabled]="i === categories().length - 1"
+                aria-label="Descendre"
+                (click)="move(i, 1)"
+              >
+                ↓
+              </button>
+              <button type="button" class="text-brand-700" (click)="editId.set(c.idCategory)">
+                Modifier
+              </button>
+              <button type="button" class="text-danger" (click)="remove(c)">Supprimer</button>
+            }
+          </div>
+        }
+      </div>
+    }
+  

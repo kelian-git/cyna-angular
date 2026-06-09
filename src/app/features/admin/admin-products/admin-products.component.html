@@ -1,0 +1,57 @@
+
+    <div class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-brand-900">Produits</h1>
+      <a routerLink="/admin/produits/nouveau" class="btn-primary">Nouveau produit</a>
+    </div>
+
+    @if (selected().length > 0) {
+      <div class="mt-4 flex items-center gap-3 rounded bg-brand-50 p-3">
+        <span class="text-sm">{{ selected().length }} sélectionné(s)</span>
+        <button type="button" class="btn-danger" (click)="deleteSelected()">
+          Supprimer la sélection
+        </button>
+      </div>
+    }
+
+    @if (loading()) {
+      <app-loader />
+    } @else {
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="border-b text-gray-500">
+            <tr>
+              <th class="p-2"></th>
+              <th class="cursor-pointer p-2" (click)="sortBy('name')">Nom ⇅</th>
+              <th class="cursor-pointer p-2" (click)="sortBy('price')">Prix ⇅</th>
+              <th class="cursor-pointer p-2" (click)="sortBy('stock')">Stock ⇅</th>
+              <th class="p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (p of sortedProducts(); track p.idProduct) {
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-2">
+                  <input
+                    type="checkbox"
+                    [checked]="selected().includes(p.idProduct)"
+                    (change)="toggle(p.idProduct)"
+                    [attr.aria-label]="'Sélectionner ' + p.name"
+                  />
+                </td>
+                <td class="p-2 font-medium">{{ p.name }}</td>
+                <td class="p-2">{{ money(p.price) }}</td>
+                <td class="p-2">{{ p.stock }}</td>
+                <td class="flex gap-3 p-2">
+                  <a [routerLink]="['/produits', p.idProduct]" class="text-brand-700">Voir</a>
+                  <a [routerLink]="['/admin/produits', p.idProduct, 'modifier']" class="text-brand-700"
+                    >Modifier</a
+                  >
+                  <button type="button" class="text-danger" (click)="remove(p)">Supprimer</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  

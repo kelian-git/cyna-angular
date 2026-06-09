@@ -1,0 +1,44 @@
+
+    <div class="container-page flex justify-center">
+      <form
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+        class="card flex w-full max-w-md flex-col gap-4 p-8"
+      >
+        <h1 class="text-2xl font-bold text-brand-900">{{ 'auth.registerTitle' | translate }}</h1>
+
+        <div>
+          <label class="mb-1 block text-sm font-medium" for="name">{{
+            'auth.name' | translate
+          }}</label>
+          <input id="name" class="input-field" formControlName="name" />
+        </div>
+        <div>
+          <label class="mb-1 block text-sm font-medium" for="remail">{{
+            'auth.email' | translate
+          }}</label>
+          <input id="remail" class="input-field" type="email" formControlName="email" />
+        </div>
+        <div>
+          <label class="mb-1 block text-sm font-medium" for="rpwd">{{
+            'auth.password' | translate
+          }}</label>
+          <input id="rpwd" class="input-field" type="password" formControlName="password" />
+          <ul class="mt-1 text-xs text-gray-500">
+            <li>Au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial.</li>
+          </ul>
+          @if (form.controls.password.touched && form.controls.password.errors?.['weakPassword']) {
+            <p class="text-xs text-danger">Mot de passe trop faible.</p>
+          }
+        </div>
+
+        <button type="submit" class="btn-primary" [disabled]="form.invalid || loading()">
+          {{ 'auth.submitRegister' | translate }}
+        </button>
+
+        <a routerLink="/connexion" class="text-center text-sm text-brand-700 hover:underline">{{
+          'auth.hasAccount' | translate
+        }}</a>
+      </form>
+    </div>
+  

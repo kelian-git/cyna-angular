@@ -24,72 +24,8 @@ type SortKey = 'relevance' | 'price-asc' | 'price-desc' | 'availability';
     LoaderComponent,
     ProductCardComponent,
   ],
-  template: `
-    <div class="container-page grid grid-cols-1 gap-6 lg:grid-cols-[260px_1fr]">
-      <aside class="card h-fit p-4">
-        <h2 class="mb-3 font-bold text-brand-900">{{ 'search.title' | translate }}</h2>
-        <label class="mb-1 block text-sm font-medium">{{ 'search.keyword' | translate }}</label>
-        <input class="input-field mb-3" [(ngModel)]="keyword" (ngModelChange)="apply()" />
-
-        <div class="mb-3 grid grid-cols-2 gap-2">
-          <div>
-            <label class="mb-1 block text-sm font-medium">{{ 'search.priceMin' | translate }}</label>
-            <input type="number" class="input-field" [(ngModel)]="priceMin" (ngModelChange)="apply()" />
-          </div>
-          <div>
-            <label class="mb-1 block text-sm font-medium">{{ 'search.priceMax' | translate }}</label>
-            <input type="number" class="input-field" [(ngModel)]="priceMax" (ngModelChange)="apply()" />
-          </div>
-        </div>
-
-        <label class="mb-1 block text-sm font-medium">{{ 'search.categoryFilter' | translate }}</label>
-        <div class="mb-3 flex flex-col gap-1">
-          @for (c of categories(); track c.idCategory) {
-            <label class="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                [checked]="selectedCats().includes(c.idCategory)"
-                (change)="toggleCat(c.idCategory)"
-              />
-              {{ c.name }}
-            </label>
-          }
-        </div>
-
-        <label class="mb-3 flex items-center gap-2 text-sm">
-          <input type="checkbox" [(ngModel)]="onlyAvailable" (ngModelChange)="apply()" />
-          {{ 'search.onlyAvailable' | translate }}
-        </label>
-
-        <label class="mb-1 block text-sm font-medium">{{ 'search.sortBy' | translate }}</label>
-        <select class="input-field" [(ngModel)]="sort" (ngModelChange)="apply()">
-          <option value="relevance">Pertinence</option>
-          <option value="price-asc">Prix croissant</option>
-          <option value="price-desc">Prix décroissant</option>
-          <option value="availability">Disponibilité</option>
-        </select>
-      </aside>
-
-      <section>
-        @if (loading()) {
-          <app-loader />
-        } @else {
-          <p class="mb-4 text-sm text-gray-500">
-            {{ 'search.results' | translate: { count: results().length } }}
-          </p>
-          @if (results().length === 0) {
-            <app-empty-state [title]="'search.noResult' | translate" icon="🔍" />
-          } @else {
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              @for (p of results(); track p.idProduct) {
-                <app-product-card [product]="p" (add)="addToCart($event)" />
-              }
-            </div>
-          }
-        }
-      </section>
-    </div>
-  `,
+  templateUrl: './search.component.html',
+  styleUrl: './search.component.scss'
 })
 export class SearchComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);

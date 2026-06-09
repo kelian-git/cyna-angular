@@ -7,52 +7,8 @@ import { ChatbotService, botReply } from '../../../core/services/chatbot.service
   selector: 'app-chatbot-widget',
   standalone: true,
   imports: [FormsModule],
-  template: `
-    <div class="fixed bottom-4 left-4 z-[70]">
-      @if (open()) {
-        <div class="flex h-96 w-80 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
-          <div class="flex items-center justify-between rounded-t-lg bg-brand-800 px-4 py-2 text-white">
-            <span class="font-semibold">Assistant Cyna</span>
-            <button type="button" aria-label="Fermer le chat" (click)="open.set(false)">✕</button>
-          </div>
-          <div class="flex-1 space-y-2 overflow-y-auto p-3 text-sm">
-            @for (m of messages(); track $index) {
-              <div
-                class="max-w-[80%] rounded-lg px-3 py-1.5"
-                [class.bg-brand-100]="m.role === 'bot'"
-                [class.ml-auto]="m.role === 'user'"
-                [class.bg-gray-100]="m.role === 'user'"
-              >
-                {{ m.text }}
-              </div>
-            }
-            @if (escalated()) {
-              <p class="text-center text-xs text-gray-400">— Transféré à un agent humain —</p>
-            }
-          </div>
-          <form class="flex gap-2 border-t p-2" (ngSubmit)="send()">
-            <input
-              type="text"
-              name="draft"
-              [(ngModel)]="draft"
-              class="flex-1 rounded border border-gray-300 px-2 py-1 text-sm"
-              placeholder="Votre message…"
-              aria-label="Message au chatbot"
-            />
-            <button type="submit" class="rounded bg-brand-800 px-3 text-sm text-white">→</button>
-          </form>
-        </div>
-      } @else {
-        <button
-          type="button"
-          class="rounded-full bg-brand-800 px-5 py-3 font-semibold text-white shadow-lg hover:bg-brand-900"
-          (click)="openChat()"
-        >
-          💬 Contact Me
-        </button>
-      }
-    </div>
-  `,
+  templateUrl: './chatbot-widget.component.html',
+  styleUrl: './chatbot-widget.component.scss'
 })
 export class ChatbotWidgetComponent {
   private readonly chatbot = inject(ChatbotService);

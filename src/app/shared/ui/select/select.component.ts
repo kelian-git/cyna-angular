@@ -14,25 +14,8 @@ export interface SelectOption {
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => SelectComponent), multi: true },
   ],
-  template: `
-    <div class="flex flex-col gap-1">
-      @if (label) {
-        <label [for]="id" class="text-sm font-medium text-gray-700">{{ label }}</label>
-      }
-      <select
-        [id]="id"
-        [value]="value"
-        [disabled]="disabled"
-        class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
-        (change)="onSelect($event)"
-        (blur)="onTouched()"
-      >
-        @for (opt of options; track opt.value) {
-          <option [value]="opt.value">{{ opt.label }}</option>
-        }
-      </select>
-    </div>
-  `,
+  templateUrl: './select.component.html',
+  styleUrl: './select.component.scss'
 })
 export class SelectComponent implements ControlValueAccessor {
   @Input() label = '';

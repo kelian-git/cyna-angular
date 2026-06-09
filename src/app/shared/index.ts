@@ -18,5 +18,5 @@ export * from './components/menu-burger/menu-burger.component';
 export * from './components/language-switcher/language-switcher.component';
 export * from './components/chatbot-widget/chatbot-widget.component';
 export * from './components/toast/toast.component';
-export * from './layout/main-layout.component';
-export * from './layout/admin-layout.component';
+export * from './layout/main-layout/main-layout.component';
+export * from './layout/admin-layout/admin-layout.component';

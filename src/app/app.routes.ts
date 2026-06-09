@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { adminGuard } from './core/guards/admin.guard';
 import { authGuard } from './core/guards/auth.guard';
-import { AdminLayoutComponent } from './shared/layout/admin-layout.component';
-import { MainLayoutComponent } from './shared/layout/main-layout.component';
+import { AdminLayoutComponent } from './shared/layout/admin-layout/admin-layout.component';
+import { MainLayoutComponent } from './shared/layout/main-layout/main-layout.component';
 
 export const routes: Routes = [
   {
@@ -17,12 +17,12 @@ export const routes: Routes = [
       {
         path: 'categories',
         loadComponent: () =>
-          import('./features/catalogue/catalogue.component').then((m) => m.CatalogueComponent),
+          import('./features/catalogue/catalogue/catalogue.component').then((m) => m.CatalogueComponent),
       },
       {
         path: 'categories/:id',
         loadComponent: () =>
-          import('./features/catalogue/category.component').then((m) => m.CategoryComponent),
+          import('./features/catalogue/category/category.component').then((m) => m.CategoryComponent),
       },
       {
         path: 'produits/:id',
@@ -53,17 +53,17 @@ export const routes: Routes = [
       {
         path: 'connexion',
         loadComponent: () =>
-          import('./features/auth/login.component').then((m) => m.LoginComponent),
+          import('./features/auth/login/login.component').then((m) => m.LoginComponent),
       },
       {
         path: 'inscription',
         loadComponent: () =>
-          import('./features/auth/register.component').then((m) => m.RegisterComponent),
+          import('./features/auth/register/register.component').then((m) => m.RegisterComponent),
       },
       {
         path: 'mot-de-passe-oublie',
         loadComponent: () =>
-          import('./features/auth/forgot-password.component').then(
+          import('./features/auth/forgot-password/forgot-password.component').then(
             (m) => m.ForgotPasswordComponent,
           ),
       },
@@ -71,13 +71,13 @@ export const routes: Routes = [
         path: 'compte',
         canActivate: [authGuard],
         loadComponent: () =>
-          import('./features/account/account.component').then((m) => m.AccountComponent),
+          import('./features/account/account/account.component').then((m) => m.AccountComponent),
       },
       {
         path: 'compte/parametres',
         canActivate: [authGuard],
         loadComponent: () =>
-          import('./features/account/account-settings.component').then(
+          import('./features/account/account-settings/account-settings.component').then(
             (m) => m.AccountSettingsComponent,
           ),
       },
@@ -85,13 +85,13 @@ export const routes: Routes = [
         path: 'compte/commandes',
         canActivate: [authGuard],
         loadComponent: () =>
-          import('./features/account/orders.component').then((m) => m.OrdersComponent),
+          import('./features/account/orders/orders.component').then((m) => m.OrdersComponent),
       },
       {
         path: 'compte/commandes/:id',
         canActivate: [authGuard],
         loadComponent: () =>
-          import('./features/account/order-detail.component').then((m) => m.OrderDetailComponent),
+          import('./features/account/order-detail/order-detail.component').then((m) => m.OrderDetailComponent),
       },
       {
         path: 'contact',
@@ -100,19 +100,19 @@ export const routes: Routes = [
       },
       {
         path: 'cgu',
-        loadComponent: () => import('./features/legal/cgu.component').then((m) => m.CguComponent),
+        loadComponent: () => import('./features/legal/cgu/cgu.component').then((m) => m.CguComponent),
       },
       {
         path: 'mentions-legales',
         loadComponent: () =>
-          import('./features/legal/mentions-legales.component').then(
+          import('./features/legal/mentions-legales/mentions-legales.component').then(
             (m) => m.MentionsLegalesComponent,
           ),
       },
       {
         path: 'a-propos',
         loadComponent: () =>
-          import('./features/legal/a-propos.component').then((m) => m.AProposComponent),
+          import('./features/legal/a-propos/a-propos.component').then((m) => m.AProposComponent),
       },
     ],
   },
@@ -124,52 +124,52 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./features/admin/admin-dashboard.component').then(
+          import('./features/admin/admin-dashboard/admin-dashboard.component').then(
             (m) => m.AdminDashboardComponent,
           ),
       },
       {
         path: 'produits',
         loadComponent: () =>
-          import('./features/admin/admin-products.component').then((m) => m.AdminProductsComponent),
+          import('./features/admin/admin-products/admin-products.component').then((m) => m.AdminProductsComponent),
       },
       {
         path: 'produits/nouveau',
         loadComponent: () =>
-          import('./features/admin/admin-product-form.component').then(
+          import('./features/admin/admin-product-form/admin-product-form.component').then(
             (m) => m.AdminProductFormComponent,
           ),
       },
       {
         path: 'produits/:id/modifier',
         loadComponent: () =>
-          import('./features/admin/admin-product-form.component').then(
+          import('./features/admin/admin-product-form/admin-product-form.component').then(
             (m) => m.AdminProductFormComponent,
           ),
       },
       {
         path: 'categories',
         loadComponent: () =>
-          import('./features/admin/admin-categories.component').then(
+          import('./features/admin/admin-categories/admin-categories.component').then(
             (m) => m.AdminCategoriesComponent,
           ),
       },
       {
         path: 'commandes',
         loadComponent: () =>
-          import('./features/admin/admin-orders.component').then((m) => m.AdminOrdersComponent),
+          import('./features/admin/admin-orders/admin-orders.component').then((m) => m.AdminOrdersComponent),
       },
       {
         path: 'carousel',
         loadComponent: () =>
-          import('./features/admin/admin-carousel.component').then(
+          import('./features/admin/admin-carousel/admin-carousel.component').then(
             (m) => m.AdminCarouselComponent,
           ),
       },
       {
         path: 'messages',
         loadComponent: () =>
-          import('./features/admin/admin-messages.component').then(
+          import('./features/admin/admin-messages/admin-messages.component').then(
             (m) => m.AdminMessagesComponent,
           ),
       },

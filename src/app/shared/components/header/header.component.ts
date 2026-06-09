@@ -20,79 +20,8 @@ import { MenuBurgerComponent } from '../menu-burger/menu-burger.component';
     LanguageSwitcherComponent,
     MenuBurgerComponent,
   ],
-  template: `
-    <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
-      <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
-        <app-logo />
-
-        <form
-          class="hidden flex-1 md:flex"
-          role="search"
-          (ngSubmit)="submitSearch()"
-        >
-          <input
-            type="search"
-            name="q"
-            [(ngModel)]="query"
-            [placeholder]="'common.search' | translate"
-            class="w-full rounded-l-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand-500"
-            [attr.aria-label]="'common.search' | translate"
-          />
-          <button
-            type="submit"
-            class="rounded-r-lg bg-brand-800 px-4 text-white hover:bg-brand-900"
-            [attr.aria-label]="'common.search' | translate"
-          >
-            🔍
-          </button>
-        </form>
-
-        <nav class="ml-auto hidden items-center gap-4 md:flex" aria-label="Navigation principale">
-          <a routerLink="/categories" routerLinkActive="text-brand-800" class="text-sm text-gray-600 hover:text-brand-800">{{ 'nav.catalog' | translate }}</a>
-          @if (auth.isAuthenticated()) {
-            <a routerLink="/compte" routerLinkActive="text-brand-800" class="text-sm text-gray-600 hover:text-brand-800">{{ 'nav.account' | translate }}</a>
-            @if (auth.isAdmin()) {
-              <a routerLink="/admin" class="text-sm font-semibold text-brand-700 hover:text-brand-900">{{ 'nav.admin' | translate }}</a>
-            }
-            <button type="button" class="text-sm text-gray-600 hover:text-danger" (click)="onLogout()">{{ 'nav.logout' | translate }}</button>
-          } @else {
-            <a routerLink="/connexion" class="text-sm text-gray-600 hover:text-brand-800">{{ 'nav.login' | translate }}</a>
-          }
-          <app-language-switcher />
-        </nav>
-
-        <a
-          routerLink="/panier"
-          class="relative ml-2 text-2xl"
-          [attr.aria-label]="('nav.cart' | translate) + ' (' + cart.count() + ')'"
-        >
-          🛒
-          @if (cart.count() > 0) {
-            <span
-              class="absolute -right-2 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-danger px-1 text-xs font-bold text-white"
-              >{{ cart.count() }}</span
-            >
-          }
-        </a>
-
-        <button
-          type="button"
-          class="ml-1 text-2xl md:hidden"
-          aria-label="Ouvrir le menu"
-          [attr.aria-expanded]="menuOpen()"
-          (click)="menuOpen.set(true)"
-        >
-          ☰
-        </button>
-      </div>
-
-      <app-menu-burger
-        [open]="menuOpen()"
-        (close)="menuOpen.set(false)"
-        (logout)="onLogout(); menuOpen.set(false)"
-      />
-    </header>
-  `,
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   readonly auth = inject(AuthService);

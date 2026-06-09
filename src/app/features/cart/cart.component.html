@@ -1,0 +1,84 @@
+
+    <div class="container-page">
+      <h1 class="mb-6 text-2xl font-bold text-brand-900">{{ 'cart.title' | translate }}</h1>
+
+      @if (cart.items().length === 0) {
+        <app-empty-state [title]="'cart.empty' | translate" icon="🛒">
+          <a routerLink="/categories" class="btn-primary mt-2">{{
+            'cart.continueShopping' | translate
+          }}</a>
+        </app-empty-state>
+      } @else {
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_320px]">
+          <div class="flex flex-col gap-4">
+            @for (it of cart.items(); track it.product.idProduct) {
+              <div class="card flex items-center gap-4 p-4">
+                <img
+                  [src]="it.product.imageUrl"
+                  [alt]="it.product.name"
+                  class="h-20 w-20 rounded object-cover"
+                />
+                <div class="flex-1">
+                  <p class="font-semibold text-brand-900">{{ it.product.name }}</p>
+                  <p class="text-sm text-gray-500">{{ price(it.product.price) }} / unité</p>
+                  @if (!it.product.available) {
+                    <app-badge tone="danger">{{ 'common.unavailable' | translate }}</app-badge>
+                  }
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    class="h-8 w-8 rounded border"
+                    aria-label="Diminuer la quantité"
+                    (click)="cart.updateQuantity(it.product.idProduct, it.quantity - 1)"
+                  >
+                    −
+                  </button>
+                  <span class="w-8 text-center">{{ it.quantity }}</span>
+                  <button
+                    type="button"
+                    class="h-8 w-8 rounded border"
+                    aria-label="Augmenter la quantité"
+                    (click)="cart.updateQuantity(it.product.idProduct, it.quantity + 1)"
+                  >
+                    +
+                  </button>
+                </div>
+                <div class="w-24 text-right font-bold text-brand-800">
+                  {{ price(it.product.price * it.quantity) }}
+                </div>
+                <button
+                  type="button"
+                  class="text-danger"
+                  aria-label="Supprimer l'article"
+                  (click)="cart.remove(it.product.idProduct)"
+                >
+                  ✕
+                </button>
+              </div>
+            }
+          </div>
+
+          <aside class="card h-fit p-5">
+            <div class="flex justify-between text-sm text-gray-500">
+              <span>{{ 'cart.subtotal' | translate }}</span>
+              <span>{{ price(cart.total()) }}</span>
+            </div>
+            <div class="mt-2 flex justify-between text-lg font-bold text-brand-900">
+              <span>{{ 'cart.total' | translate }}</span>
+              <span>{{ price(cart.total()) }}</span>
+            </div>
+            <p class="mt-1 text-xs text-gray-400">{{ 'cart.taxIncl' | translate }}</p>
+            <a routerLink="/checkout" class="btn-primary mt-4 w-full">{{
+              'cart.checkout' | translate
+            }}</a>
+            <a
+              routerLink="/categories"
+              class="btn-secondary mt-2 w-full"
+              >{{ 'cart.continueShopping' | translate }}</a
+            >
+          </aside>
+        </div>
+      }
+    </div>
+  
