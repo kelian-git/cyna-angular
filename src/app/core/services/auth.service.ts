@@ -1,5 +1,6 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { Observable, map, switchMap, throwError } from 'rxjs';
+import { Observable, catchError, map, switchMap, throwError } from 'rxjs';
 import { RegisterPayload, User } from '../models';
 import { readJson, removeKey, writeJson } from '../utils/storage.util';
 import { UserService } from './user.service';
@@ -7,14 +8,9 @@ import { UserService } from './user.service';
 const STORAGE_KEY = 'cyna-auth';
 const MAX_LOGIN_ATTEMPTS = 10;
 
-/**
- * V1 — Pseudo-auth : le back n'expose pas /api/auth/login.
- * On récupère l'utilisateur par email (pas de vérification de mot de passe
- * possible côté front car le hash BCrypt est inaccessible). Quand le back
- * exposera POST /api/auth/login, remplacer le corps de login().
- */
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  private readonly http = inject(HttpClient);
   private readonly userService = inject(UserService);
 
   private readonly currentUserSignal = signal<User | null>(
@@ -26,20 +22,24 @@ export class AuthService {
     () => this.currentUserSignal()?.adminRole?.label === 'ADMIN',
   );
 
-  /** Rate limiting simulé côté front (DAT §4) : blocage après 10 tentatives. */
   private loginAttempts = 0;
 
-  login(email: string, _password?: string): Observable<User> {
+  login(email: string, password: string): Observable<User> {
     if (this.loginAttempts >= MAX_LOGIN_ATTEMPTS) {
       return throwError(() => new Error('TOO_MANY_ATTEMPTS'));
     }
     this.loginAttempts += 1;
-    return this.userService.getByEmail(email).pipe(
+    return this.http.post<User>('/api/auth/login', { email, password }).pipe(
       map((user) => {
-        if (!user) throw new Error('USER_NOT_FOUND');
         this.loginAttempts = 0;
         this.setUser(user);
         return user;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        if (err.status === 401) {
+          return throwError(() => new Error('INVALID_CREDENTIALS'));
+        }
+        return throwError(() => new Error('LOGIN_ERROR'));
       }),
     );
   }

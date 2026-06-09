@@ -42,8 +42,8 @@ export class LoginComponent {
       error: (e: Error) => {
         this.loading.set(false);
         const msg =
-          e.message === 'USER_NOT_FOUND'
-            ? 'Compte inexistant ou non confirmé.'
+          e.message === 'INVALID_CREDENTIALS'
+            ? 'Email ou mot de passe incorrect.'
             : e.message === 'TOO_MANY_ATTEMPTS'
               ? 'Trop de tentatives. Réessayez plus tard.'
               : 'Échec de la connexion.';
