@@ -10,8 +10,7 @@ import { strongPasswordValidator } from '../../../core/utils/validators.util';
   selector: 'app-register',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink, TranslateModule],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent {
   private readonly fb = inject(FormBuilder);

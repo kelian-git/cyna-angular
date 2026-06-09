@@ -14,8 +14,7 @@ import { EmptyStateComponent } from '../../../shared/ui/empty-state/empty-state.
   selector: 'app-category-page',
   standalone: true,
   imports: [LoaderComponent, ProductCardComponent, EmptyStateComponent],
-  templateUrl: './category.component.html',
-  styleUrl: './category.component.scss'
+  templateUrl: './category.component.html'
 })
 export class CategoryComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);

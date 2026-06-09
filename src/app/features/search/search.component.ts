@@ -24,8 +24,7 @@ type SortKey = 'relevance' | 'price-asc' | 'price-desc' | 'availability';
     LoaderComponent,
     ProductCardComponent,
   ],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.scss'
+  templateUrl: './search.component.html'
 })
 export class SearchComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);

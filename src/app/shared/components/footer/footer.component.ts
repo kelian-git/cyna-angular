@@ -6,8 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink, TranslateModule],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   readonly year = new Date().getFullYear();

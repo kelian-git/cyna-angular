@@ -21,8 +21,7 @@ import { ProductCardComponent } from '../../shared/ui/product-card/product-card.
     ProductCardComponent,
     LoaderComponent,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   readonly carousel = inject(CarouselService);

@@ -11,8 +11,7 @@ import { LoaderComponent } from '../../../shared/ui/loader/loader.component';
   selector: 'app-order-detail',
   standalone: true,
   imports: [RouterLink, BadgeComponent, LoaderComponent],
-  templateUrl: './order-detail.component.html',
-  styleUrl: './order-detail.component.scss'
+  templateUrl: './order-detail.component.html'
 })
 export class OrderDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);

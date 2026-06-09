@@ -19,8 +19,7 @@ interface Recap {
   selector: 'app-confirmation',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './confirmation.component.html',
-  styleUrl: './confirmation.component.scss'
+  templateUrl: './confirmation.component.html'
 })
 export class ConfirmationComponent {
   private readonly router = inject(Router);

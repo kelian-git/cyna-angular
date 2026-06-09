@@ -7,8 +7,7 @@ export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
   selector: 'app-button',
   standalone: true,
   imports: [NgClass],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+  templateUrl: './button.component.html'
 })
 export class ButtonComponent {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';

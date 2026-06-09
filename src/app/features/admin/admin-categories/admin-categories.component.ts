@@ -9,8 +9,7 @@ import { LoaderComponent } from '../../../shared/ui/loader/loader.component';
   selector: 'app-admin-categories',
   standalone: true,
   imports: [ReactiveFormsModule, LoaderComponent],
-  templateUrl: './admin-categories.component.html',
-  styleUrl: './admin-categories.component.scss'
+  templateUrl: './admin-categories.component.html'
 })
 export class AdminCategoriesComponent implements OnInit {
   private readonly fb = inject(FormBuilder);

@@ -8,8 +8,7 @@ import { CarouselComponent } from '../../../shared/ui/carousel/carousel.componen
   selector: 'app-admin-carousel',
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, CarouselComponent],
-  templateUrl: './admin-carousel.component.html',
-  styleUrl: './admin-carousel.component.scss'
+  templateUrl: './admin-carousel.component.html'
 })
 export class AdminCarouselComponent {
   readonly carousel = inject(CarouselService);

@@ -18,8 +18,7 @@ import { formatPrice } from '../../../core/utils/formatters.util';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  templateUrl: './admin-dashboard.component.html',
-  styleUrl: './admin-dashboard.component.scss'
+  templateUrl: './admin-dashboard.component.html'
 })
 export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
   private readonly orderService = inject(OrderService);

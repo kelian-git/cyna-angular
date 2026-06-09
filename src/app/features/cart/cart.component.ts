@@ -10,8 +10,7 @@ import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.com
   selector: 'app-cart',
   standalone: true,
   imports: [RouterLink, TranslateModule, BadgeComponent, EmptyStateComponent],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  templateUrl: './cart.component.html'
 })
 export class CartComponent {
   readonly cart = inject(CartService);

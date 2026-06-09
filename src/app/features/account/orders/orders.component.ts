@@ -14,8 +14,7 @@ import { LoaderComponent } from '../../../shared/ui/loader/loader.component';
   selector: 'app-orders',
   standalone: true,
   imports: [FormsModule, RouterLink, BadgeComponent, EmptyStateComponent, LoaderComponent],
-  templateUrl: './orders.component.html',
-  styleUrl: './orders.component.scss'
+  templateUrl: './orders.component.html'
 })
 export class OrdersComponent implements OnInit {
   private readonly auth = inject(AuthService);

@@ -9,8 +9,7 @@ import { BadgeComponent } from '../badge/badge.component';
   selector: 'app-product-card',
   standalone: true,
   imports: [RouterLink, TranslateModule, BadgeComponent],
-  templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss'
+  templateUrl: './product-card.component.html'
 })
 export class ProductCardComponent {
   @Input({ required: true }) product!: Product;

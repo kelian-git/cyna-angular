@@ -6,8 +6,7 @@ import { applyDirection } from '../../../core/i18n/translate-loader';
 @Component({
   selector: 'app-language-switcher',
   standalone: true,
-  templateUrl: './language-switcher.component.html',
-  styleUrl: './language-switcher.component.scss'
+  templateUrl: './language-switcher.component.html'
 })
 export class LanguageSwitcherComponent {
   readonly translate = inject(TranslateService);

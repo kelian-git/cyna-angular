@@ -3,8 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-loader',
   standalone: true,
-  templateUrl: './loader.component.html',
-  styleUrl: './loader.component.scss'
+  templateUrl: './loader.component.html'
 })
 export class LoaderComponent {
   @Input() size = 36;

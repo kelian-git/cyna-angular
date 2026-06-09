@@ -7,8 +7,7 @@ export type BadgeTone = 'success' | 'danger' | 'info' | 'warning' | 'neutral';
   selector: 'app-badge',
   standalone: true,
   imports: [NgClass],
-  templateUrl: './badge.component.html',
-  styleUrl: './badge.component.scss'
+  templateUrl: './badge.component.html'
 })
 export class BadgeComponent {
   @Input() tone: BadgeTone = 'neutral';

@@ -13,8 +13,7 @@ type SortCol = 'name' | 'price' | 'stock';
   selector: 'app-admin-products',
   standalone: true,
   imports: [RouterLink, LoaderComponent],
-  templateUrl: './admin-products.component.html',
-  styleUrl: './admin-products.component.scss'
+  templateUrl: './admin-products.component.html'
 })
 export class AdminProductsComponent implements OnInit {
   private readonly productService = inject(ProductService);

@@ -17,8 +17,7 @@ import {
   selector: 'app-checkout',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink],
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.scss'
+  templateUrl: './checkout.component.html'
 })
 export class CheckoutComponent {
   readonly auth = inject(AuthService);

@@ -14,8 +14,7 @@ import { BadgeComponent } from '../../shared/ui/badge/badge.component';
   selector: 'app-product',
   standalone: true,
   imports: [TranslateModule, LoaderComponent, ProductCardComponent, BadgeComponent],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  templateUrl: './product.component.html'
 })
 export class ProductComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);

@@ -5,8 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-logo',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './logo.component.html',
-  styleUrl: './logo.component.scss'
+  templateUrl: './logo.component.html'
 })
 export class LogoComponent {
   @Input() showTagline = true;

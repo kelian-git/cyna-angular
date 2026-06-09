@@ -20,8 +20,7 @@ import { MenuBurgerComponent } from '../menu-burger/menu-burger.component';
     LanguageSwitcherComponent,
     MenuBurgerComponent,
   ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
   readonly auth = inject(AuthService);

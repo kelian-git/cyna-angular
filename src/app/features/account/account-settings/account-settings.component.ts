@@ -13,8 +13,7 @@ import { strongPasswordValidator } from '../../../core/utils/validators.util';
   selector: 'app-account-settings',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './account-settings.component.html',
-  styleUrl: './account-settings.component.scss'
+  templateUrl: './account-settings.component.html'
 })
 export class AccountSettingsComponent implements OnInit {
   private readonly fb = inject(FormBuilder);

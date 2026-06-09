@@ -12,8 +12,7 @@ import { LoaderComponent } from '../../../shared/ui/loader/loader.component';
   selector: 'app-account',
   standalone: true,
   imports: [RouterLink, BadgeComponent, LoaderComponent],
-  templateUrl: './account.component.html',
-  styleUrl: './account.component.scss'
+  templateUrl: './account.component.html'
 })
 export class AccountComponent implements OnInit {
   readonly auth = inject(AuthService);

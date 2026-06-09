@@ -9,8 +9,7 @@ import { ToastService } from '../../../core/services/toast.service';
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink, TranslateModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
   private readonly fb = inject(FormBuilder);

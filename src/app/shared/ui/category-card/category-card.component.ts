@@ -6,8 +6,7 @@ import { Category } from '../../../core/models';
   selector: 'app-category-card',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './category-card.component.html',
-  styleUrl: './category-card.component.scss'
+  templateUrl: './category-card.component.html'
 })
 export class CategoryCardComponent {
   @Input({ required: true }) category!: Category;

@@ -7,8 +7,7 @@ import { ChatbotService, botReply } from '../../../core/services/chatbot.service
   selector: 'app-chatbot-widget',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './chatbot-widget.component.html',
-  styleUrl: './chatbot-widget.component.scss'
+  templateUrl: './chatbot-widget.component.html'
 })
 export class ChatbotWidgetComponent {
   private readonly chatbot = inject(ChatbotService);

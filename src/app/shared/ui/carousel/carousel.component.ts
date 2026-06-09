@@ -13,8 +13,7 @@ import { CarouselSlide } from '../../../core/models';
   selector: 'app-carousel',
   standalone: true,
   imports: [RouterLink, NgClass],
-  templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss'
+  templateUrl: './carousel.component.html'
 })
 export class CarouselComponent implements OnInit, OnDestroy {
   @Input() slides: CarouselSlide[] = [];

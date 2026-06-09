@@ -9,8 +9,7 @@ import { LoaderComponent } from '../../../shared/ui/loader/loader.component';
   selector: 'app-catalogue',
   standalone: true,
   imports: [TranslateModule, CategoryCardComponent, LoaderComponent],
-  templateUrl: './catalogue.component.html',
-  styleUrl: './catalogue.component.scss'
+  templateUrl: './catalogue.component.html'
 })
 export class CatalogueComponent implements OnInit {
   private readonly categoryService = inject(CategoryService);

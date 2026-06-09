@@ -13,8 +13,7 @@ const STATUSES = ['PENDING', 'DELIVERED', 'COMPLETED', 'CANCELLED'];
   selector: 'app-admin-orders',
   standalone: true,
   imports: [FormsModule, BadgeComponent, LoaderComponent],
-  templateUrl: './admin-orders.component.html',
-  styleUrl: './admin-orders.component.scss'
+  templateUrl: './admin-orders.component.html'
 })
 export class AdminOrdersComponent implements OnInit {
   private readonly orderService = inject(OrderService);

@@ -10,8 +10,7 @@ import { EmptyStateComponent } from '../../../shared/ui/empty-state/empty-state.
   selector: 'app-admin-messages',
   standalone: true,
   imports: [BadgeComponent, EmptyStateComponent],
-  templateUrl: './admin-messages.component.html',
-  styleUrl: './admin-messages.component.scss'
+  templateUrl: './admin-messages.component.html'
 })
 export class AdminMessagesComponent {
   readonly contact = inject(ContactService);

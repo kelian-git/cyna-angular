@@ -10,8 +10,7 @@ import { ToastService } from '../../../core/services/toast.service';
   selector: 'app-admin-product-form',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './admin-product-form.component.html',
-  styleUrl: './admin-product-form.component.scss'
+  templateUrl: './admin-product-form.component.html'
 })
 export class AdminProductFormComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
