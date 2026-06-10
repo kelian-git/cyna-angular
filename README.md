@@ -56,15 +56,6 @@ npm run lint         # ESLint (TS + templates)
 npm run format       # Prettier --write
 ```
 
-## Authentification (V1)
-
-Le backend n'expose pas encore `/api/auth/login` ni de JWT. Le front utilise une
-**pseudo-authentification** : récupération de l'utilisateur via
-`GET /api/users/email/{email}` puis stockage en `localStorage`. L'intercepteur
-`jwt.interceptor` est déjà prêt pour un vrai token (access 15 min + refresh 7 j)
-quand le back l'exposera.
-
-
 ## Architecture
 
 ```
