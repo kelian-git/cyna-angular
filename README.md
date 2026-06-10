@@ -64,13 +64,6 @@ Le backend n'expose pas encore `/api/auth/login` ni de JWT. Le front utilise une
 `jwt.interceptor` est déjà prêt pour un vrai token (access 15 min + refresh 7 j)
 quand le back l'exposera.
 
-### Comptes de test seedés
-
-| Email | Mot de passe | Rôle |
-|-------|--------------|------|
-| admin@cyna.com | admin1234 | ADMIN |
-| alice@cyna.com | alice1234 | USER |
-| bob@cyna.com | bob1234 | USER |
 
 ## Architecture
 
@@ -99,14 +92,6 @@ src/app/
 - RGPD : suppression de compte (`DELETE /api/users/{id}`), politique accessible
   depuis le footer, aucune donnée sensible en clair (carte = 4 derniers chiffres).
 
-## Tests & couverture
-
-```bash
-npm run test:coverage
-```
-
-La couverture est mesurée sur la couche logique (services, utils, guards,
-intercepteurs) + composants UI clés : **> 90 % lignes**, seuil CI fixé à 70 %.
 
 ## Déploiement
 
