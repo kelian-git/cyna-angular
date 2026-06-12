@@ -40,7 +40,10 @@ export const appConfig: ApplicationConfig = {
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'top', anchorScrolling: 'enabled' }),
     ),
-    provideHttpClient(withInterceptors([jwtInterceptor, errorInterceptor])),
+    // Ordre : errorInterceptor en premier (le plus externe), jwtInterceptor en dernier
+    // (le plus proche du back). Ainsi le jwtInterceptor intercepte le 401 et tente le
+    // refresh AVANT que l'errorInterceptor ne declenche la deconnexion.
+    provideHttpClient(withInterceptors([errorInterceptor, jwtInterceptor])),
     provideAnimations(),
     importProvidersFrom(
       TranslateModule.forRoot({
