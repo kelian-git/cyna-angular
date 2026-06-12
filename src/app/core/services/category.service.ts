@@ -6,11 +6,11 @@ import { Category, CategoryPayload } from '../models';
 const CATEGORY_META: Record<string, { description: string; image: string }> = {
   SOC: {
     description: 'Centre opérationnel de sécurité : surveillance et réponse 24/7.',
-    image: 'https://images.unsplash.com/photo-1551808525-051fb1a87d8a?auto=format&fit=crop&w=800&q=70',
+    image: 'https://alleo.fr/wp-content/uploads/2024/04/2Alleo-WEB-147.jpg',
   },
   EDR: {
     description: 'Détection et réponse sur les endpoints, multi-OS.',
-    image: 'https://images.unsplash.com/photo-1614064548237-02f96b3c2bd1?auto=format&fit=crop&w=800&q=70',
+    image: 'https://www.bitdefender.com/adobe/dynamicmedia/deliver/dm-aid--c7155abf-837c-4ff7-81bb-bd33ee28bf88/infozone-endpoint-security-consists-660x380px-4.jpg?quality=85&preferwebp=true',
   },
   XDR: {
     description: 'Détection étendue : endpoints, réseau, cloud et email unifiés.',
